@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
 function Square(props) {
@@ -21,7 +22,7 @@ class Board extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="board">
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -63,7 +64,7 @@ class Game extends React.Component {
 
     if (calculateWinner(squares)) {
       return true;
-    }else if(squares[i]){
+    } else if (squares[i]) {
       return false;
     }
     squares[i] = this.state.xIsNext ? "X" : "O";
@@ -76,10 +77,12 @@ class Game extends React.Component {
   }
 
   jumpTo(step) {
-    this.setState({
-      stepNumber: step,
-      xIsNext: step % 2 === 0,
-    });
+    if (step >= 0) {
+      this.setState({
+        stepNumber: step,
+        xIsNext: step % 2 === 0,
+      });
+    }
   }
 
   render() {
@@ -91,7 +94,9 @@ class Game extends React.Component {
       const desc = move ? "Go to move #" + move : "Go to game start";
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button className="move" onClick={() => this.jumpTo(move)}>
+            {desc}
+          </button>
         </li>
       );
     });
@@ -99,20 +104,38 @@ class Game extends React.Component {
     let status;
     if (winner) {
       status = "Winner: " + winner;
+    } else if (winner === false) {
+      status = "Draw";
     } else {
       status = "Next Player: " + (this.state.xIsNext ? "X" : "O");
     }
     return (
       <div className="game">
-        <div className="game-board">
-          <Board
-            squares={current.squares}
-            onClick={(i) => this.handleClick(i)}
-          />
-        </div>
-        <div className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
+        <h1 className="h1 mt-3 text-center Name col-md-12">TIC TAC TOE</h1>
+        <div className="row">
+          <div className="game-board g-0 col-md-8">
+            <Board
+              squares={current.squares}
+              onClick={(i) => this.handleClick(i)}
+            />
+          </div>
+          <div className="game-info g-0 col-md-4">
+            <div className="status text-center col-12">{status}</div>
+            <div className="row">
+              <div className="buttons g-0 col-6">
+                <button className="reset col-12" onClick={() => this.jumpTo(0)}>
+                  Reset
+                </button><br/>
+                <button
+                  className="undo mt-2 col-12"
+                  onClick={() => this.jumpTo(this.state.stepNumber - 1)}
+                >
+                  Undo
+                </button>
+              </div>
+              <ol className="col-6 g-0 text-center">{moves}</ol>
+            </div>
+          </div>
         </div>
       </div>
     );

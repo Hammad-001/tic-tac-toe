@@ -1,51 +1,100 @@
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
+  padding:0px;
+  height: 100%;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background: radial-gradient(circle, plum, purple);
 }
 
-ol,
-ul {
-  padding-left: 30px;
-}
-
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.status {
-  margin-bottom: 10px;
+.Name {
+  color: pink;
+  text-align: center;
+  font-size: 5rem;
+  text-shadow: 3px 3px 3px purple;
 }
 
 .square {
-  height: 34px;
-  width: 34px;
-  padding: 0;
-  float: left;
-  margin-top: -1px;
-  margin-right: -1px;
-  background: #fff;
-  border: 1px solid #999;
+  height: 130px;
+  width: 130px;
+  border-radius: 30px;
+  margin: 10px 10px;
+  color: pink;
+  background-color: rgb(170, 0, 170);
   text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
+  font-size: 2rem;
+  transition: all 0.5s ease;
+  box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -webkit-box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -moz-box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -ms-box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -o-box-shadow: 0px 4px 3px rgb(82, 1, 82);
 }
 
-.square:focus {
-  outline: none;
+.square:hover,
+button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
 }
 
-.kbd-navigation .square:focus {
-  background: #ddd;
+button {
+  width: 150px;
+  height:150px;
+  color: pink;
+  border-radius: 5px;
+  background-color: rgb(170, 0, 170);
+  text-align: center;
+  font-size: 1rem;
+  transition: all 0.5s ease;
+  box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -webkit-box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -moz-box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -ms-box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -o-box-shadow: 0px 4px 3px rgb(82, 1, 82);
 }
 
-.game {
-  display: flex;
-  flex-direction: row;
+ol{
+  padding: 0px;
+  margin:0px;
+  list-style-type: none;
+  margin-top:10px;
 }
 
-.game-info {
-  margin-left: 20px;
+li{
+  margin-bottom:8px;
+  text-align:left;
+}
+
+.status {
+  color: pink;
+  text-align: center;
+  font-size: 2rem;
+  text-shadow: 3px 3px 3px purple;
+}
+
+.game-board{
+  text-align: center;
+}
+
+.move{
+  width:140px;
+  height:35px;
+  text-align:center;
+}
+
+.reset, .undo{
+  width:90px;
+  height:40px;
+  line-height:39px;
+}
+
+.buttons{
+  text-align:center;
 }
