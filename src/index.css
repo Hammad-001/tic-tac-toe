@@ -1,0 +1,100 @@
+body {
+  padding:0px;
+  height: 100%;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background: radial-gradient(circle, plum, purple);
+}
+
+.Name {
+  color: pink;
+  text-align: center;
+  font-size: 5rem;
+  text-shadow: 3px 3px 3px purple;
+}
+
+.square {
+  height: 130px;
+  width: 130px;
+  border-radius: 30px;
+  margin: 10px 10px;
+  color: pink;
+  background-color: rgb(170, 0, 170);
+  text-align: center;
+  font-size: 2rem;
+  transition: all 0.5s ease;
+  box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -webkit-box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -moz-box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -ms-box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -o-box-shadow: 0px 4px 3px rgb(82, 1, 82);
+}
+
+.square:hover,
+button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+button {
+  width: 150px;
+  height:150px;
+  color: pink;
+  border-radius: 5px;
+  background-color: rgb(170, 0, 170);
+  text-align: center;
+  font-size: 1rem;
+  transition: all 0.5s ease;
+  box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -webkit-box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -moz-box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -ms-box-shadow: 0px 4px 3px rgb(82, 1, 82);
+  -o-box-shadow: 0px 4px 3px rgb(82, 1, 82);
+}
+
+ol{
+  padding: 0px;
+  margin:0px;
+  list-style-type: none;
+  margin-top:10px;
+}
+
+li{
+  margin-bottom:8px;
+  text-align:left;
+}
+
+.status {
+  color: pink;
+  text-align: center;
+  font-size: 2rem;
+  text-shadow: 3px 3px 3px purple;
+}
+
+.game-board{
+  text-align: center;
+}
+
+.move{
+  width:140px;
+  height:35px;
+  text-align:center;
+}
+
+.reset, .undo{
+  width:90px;
+  height:40px;
+  line-height:39px;
+}
+
+.buttons{
+  text-align:center;
+}
