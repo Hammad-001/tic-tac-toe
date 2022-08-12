@@ -61,11 +61,10 @@ class Game extends React.Component {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
-
     if (calculateWinner(squares)) {
       return true;
-    } else if (squares[i]) {
-      return false;
+    }else if(noMove(squares)){
+      return true;
     }
     squares[i] = this.state.xIsNext ? "X" : "O";
     const nextState = !this.state.xIsNext;
@@ -88,23 +87,23 @@ class Game extends React.Component {
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
+    const move = noMove(current.squares)
     const winner = calculateWinner(current.squares);
-
-    const moves = history.map((step, move) => {
-      const desc = move ? "Go to move #" + move : "Go to game start";
-      return (
-        <li key={move}>
-          <button className="move" onClick={() => this.jumpTo(move)}>
-            {desc}
-          </button>
-        </li>
-      );
-    });
+    // const moves = history.map((step, move) => {
+    //   const desc = move ? "Go to move #" + move : "Go to game start";
+    //   return (
+    //     <li key={move}>
+    //       <button className="move" onClick={() => this.jumpTo(move)}>
+    //         {desc}
+    //       </button>
+    //     </li>
+    //   );
+    // });
 
     let status;
     if (winner) {
       status = "Winner: " + winner;
-    } else if (winner === false) {
+    } else if (move) {
       status = "Draw";
     } else {
       status = "Next Player: " + (this.state.xIsNext ? "X" : "O");
@@ -113,27 +112,28 @@ class Game extends React.Component {
       <div className="game">
         <h1 className="h1 mt-3 text-center Name col-md-12">TIC TAC TOE</h1>
         <div className="row">
-          <div className="game-board g-0 col-md-8">
+          <div className="game-board g-0 col-md-6">
             <Board
               squares={current.squares}
               onClick={(i) => this.handleClick(i)}
             />
           </div>
-          <div className="game-info g-0 col-md-4">
+          <div className="game-info g-0 col-md-6">
             <div className="status text-center col-12">{status}</div>
             <div className="row">
-              <div className="buttons g-0 col-6">
-                <button className="reset col-12" onClick={() => this.jumpTo(0)}>
+              <div className="buttons g-2 text-center col-12">
+                <button className="reset m-1 col-12" onClick={() => this.jumpTo(0)}>
                   Reset
-                </button><br/>
+                </button>
+                {/* <br /> */}
                 <button
-                  className="undo mt-2 col-12"
+                  className="undo m-1 col-12"
                   onClick={() => this.jumpTo(this.state.stepNumber - 1)}
                 >
                   Undo
                 </button>
               </div>
-              <ol className="col-6 g-0 text-center">{moves}</ol>
+              {/* <ol className="col-6 g-0 text-center">{moves}</ol> */}
             </div>
           </div>
         </div>
@@ -163,4 +163,13 @@ function calculateWinner(squares) {
     }
   }
   return null;
+}
+
+function noMove(squares) {
+  for(let i = 0; i<squares.length;i++){
+    if(squares[i]===null){
+      return false;
+    }
+  }
+  return true;
 }
